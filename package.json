@@ -13,10 +13,6 @@
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      {
-        "command": "tresml.unesuperfonction",
-        "title": "Une super fonction"
-      }
     ],
     "languages": [
       {
@@ -24,17 +20,42 @@
         "extensions": [".tml"],
         "aliases": ["TresML"],
         "filenames": [],
+        "configuration": "./language-configuration.json",
         "icon": {
           "light": "./icons/tresml_light.svg",
           "dark": "./icons/tresml_dark.svg"
         }
+      },
+      {
+        "id": "tresml_script"
       }
     ],
     "grammars": [
       {
         "language": "tresml",
         "scopeName": "source.tml",
-        "path": "./syntaxes/tresml.tmGrammar.json"
+        "path": "./syntaxes/tresml.tmGrammar.json",
+        "embeddedLanguages": {
+          "meta.embedded.html": "html"
+        }
+      },
+      {
+        "scopeName": "tresml.tresml_script.block",
+        "path": "./syntaxes/tresml_script_embedded.tmGrammar.json",
+        "injectTo": [
+          "source.tml"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.tresml_script": "tresml_script"
+        }
+      },
+      {
+        "language": "tresml_script",
+        "scopeName": "source.tml_scr",
+        "path": "./syntaxes/tresml_script.tmGrammar.json",
+        "embeddedLanguages": {
+          "meta.embedded.tresml": "tresml"
+        }
       }
     ]
   },

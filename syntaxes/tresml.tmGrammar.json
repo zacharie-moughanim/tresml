@@ -1,0 +1,24 @@
+{
+  "scopeName": "source.tml",
+  "patterns": [{ "include": "#expression" }],
+  "repository": {
+    "expression": {
+      "patterns": [
+        {"include": "#start-of-doc-toplevel-pure-html"},
+        {"include": "#intermediate-toplevel-pure-html"},
+        {"include": "#end-of-doc-toplevel-pure-html"},
+        {"include": "#test"}
+      ]
+    },
+    "start-of-doc-toplevel-pure-html": {
+      "begin": "\\A",
+      "end": "\\Z",
+      "name": "meta.embedded.html text.html"
+    },
+    "test": {
+      "match": "coucou",
+      "name": "coucou.tml"
+    }
+  },
+  "comment": "TODO color as full html a page with no tresml code at all."
+}

@@ -1,0 +1,107 @@
+{
+  "scopeName": "source.tml_scr",
+  "patterns": [{ "include": "#expression" }],
+  "repository": {
+    "expression": {
+      "patterns": [
+        { "include": "#html-expression" },
+        { "include": "#binding-word" },
+        { "include": "#function-declaration-word" },
+        { "include": "#other-keyword" },
+        { "include": "#integer-literal" },
+        { "include": "#boolean-literal" },
+        { "include": "#fstring-literal" },
+        { "include": "#string-literal" },
+        { "include": "#identifier" },
+        { "include": "#Identifier" },
+        { "include": "#period" },
+        { "include": "#semicolon" },
+        { "include": "#comma" },
+        { "include": "#operators" }
+      ]
+    },
+    "html-expression": {
+      "begin": "<\\[",
+      "end": "\\]>",
+      "name": "meta.embedded.tresml source.tml"
+    },
+    "binding-word": {
+      "match": "let",
+      "name": "keyword.tml"
+    },
+    "function-declaration-word": {
+      "match": "fun|fixfun",
+      "name": "keyword.tml"
+    },
+    "other-keyword": {
+      "match": "in",
+      "name": "keyword.tml"
+    },
+    "integer-literal": {
+      "match": "[0-9][[0-9]_]*",
+      "name": "constant.numeric.integer.tml"
+    },
+    "boolean-literal": {
+      "match": "true|false",
+      "name": "constant.numeric.boolean.tml", "comment": "FIXME: numeric..."
+    },
+    "fstring-literal": {
+      "begin": "f\"",
+      "end": "\"",
+      "name": "string.quoted.double.tml fstring",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.tml", "comment": "FIXME: add each escape char and tag others as invalid.something"
+        },
+        {
+          "begin": "%{",
+          "end": "}%",
+          "beginCaptures": {
+            "0": { "name": "punctuation.fstring_code_embed.open" }
+          },
+          "endCaptures": {
+            "0": { "name": "punctuation.fstring_code_embed.close" }
+          },
+          "name": "fstring.embedded.tresml_scr source.tml_scr",
+          "patterns": [{ "include" : "#expression"}], "comment": "FIXME: identifiers and maybe others tokens are still colored as strings"
+        }
+      ]
+    },
+    "string-literal": {
+      "begin": "\"",
+      "end": "\"",
+      "name": "string.quoted.double.tml",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.tml", "comment": "FIXME: add each escape char and tag others as invalid.something"
+        }
+      ]
+    },
+    "identifier": {
+      "match": "[_[a-z]][[:alnum:]'_]*",
+      "name": "entity.name.identifier.tml"
+    },
+    "Identifier": {
+      "match": "[A-Z][[:alnum:]'_]*",
+      "name": "constant.language.Identifier.tml"
+    },
+    "period": {
+      "match": "\\.",
+      "name": "punctuation.separator.period punctuation.other.period"
+    },
+    "semicolon": {
+      "match": ";",
+      "name": "punctuation.separator.semicolon punctuation.separator.terminator"
+    },
+    "comma": {
+      "match": ",",
+      "name": "punctuation.separator.comma punctuation.comma"
+    },
+    "operators": {
+      "match": "->|\\+\\+|\\=|<>|\\+|\\-|\\*|\\/|\\^|>=|<=|>|<|&&|\\|\\|",
+      "name": "keyword.operator.tml"
+    }
+  }
+}
