@@ -4,21 +4,30 @@
   "repository": {
     "expression": {
       "patterns": [
-        {"include": "#start-of-doc-toplevel-pure-html"},
-        {"include": "#intermediate-toplevel-pure-html"},
-        {"include": "#end-of-doc-toplevel-pure-html"},
-        {"include": "#test"}
+        {"include": "#test-html-block"},
+        {"include": "#test2-html-block"}
       ]
     },
-    "start-of-doc-toplevel-pure-html": {
-      "begin": "\\A",
-      "end": "\\Z",
-      "name": "meta.embedded.html text.html"
+    "test-html-block": {
+      "patterns": [
+        {
+          "name": "html.block",
+          "begin": "\\A",
+          "contentName": "meta.embedded.html",
+          "patterns": [{ "include": "text.html.derivative" }]
+        }
+      ]
     },
-    "test": {
-      "match": "coucou",
-      "name": "coucou.tml"
+    "test2-html-block": {
+      "patterns": [
+        {
+          "name": "html.block",
+          "begin": "<\\[",
+          "end": "\\]>",
+          "contentName": "meta.embedded.html",
+          "patterns": [{ "include": "text.html.derivative" }]
+        }
+      ]
     }
-  },
-  "comment": "TODO color as full html a page with no tresml code at all."
+  }
 }

@@ -1,13 +1,8 @@
 {
   "scopeName": "tresml.tresml_script.block",
-  "foldingStartMarker": "\\{\\s*$",
-  "foldingEndMarker": "^\\s*\\}",
   "injectionSelector": "L:source.tml",
-  "patterns": [{ "include": "#expression" }],
+  "patterns": [{ "include": "#tresml_script-expression" }],
   "repository": {
-    "expression": {
-      "patterns": [{ "include": "#tresml_script-expression" }]
-    },
     "tresml_script-expression": {
       "begin": "<{",
       "end": "}>",
@@ -17,7 +12,7 @@
       "endCaptures": {
         "0": { "name": "punctuation.tml_scr.close" }
       },
-      "name": "meta.embedded.tresml_script",
+      "name": "meta.embedded.tresml_script source.tml_scr",
       "patterns": [{ "include": "source.tml_scr" }]  
     }
   }

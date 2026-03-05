@@ -1,7 +1,7 @@
 {
   // "comments": {
   //   "lineComment": "//",
-  //   "blockComment": ["/*", "*/"]
+  //   "blockComment": ["/*", "*/"] TODO uncomment when comment are implemented in tresml
   // },
   "brackets": [
     ["%{", "}%"],
@@ -9,7 +9,7 @@
     ["<{", "}>"],
     // ["[", "]"],
     // ["{", "}"],
-    // ["(", ")"]
+    ["(", ")"]
   ],
   "autoClosingPairs": [
     { "open": "%{", "close": "}%" },
@@ -37,7 +37,7 @@
   },
   "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)",
   "indentationRules": {
-    "increaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)$",
+    "increaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)$", // TODO add indentation helpers for if then else and similar
     "decreaseIndentPattern": "^((?!.*?\\/\\*).*\\*/)?\\s*[\\)\\}\\]].*$"
   }
 }
