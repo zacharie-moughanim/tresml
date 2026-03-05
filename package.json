@@ -2,23 +2,33 @@
   "name": "tresml",
   "displayName": "TresML",
   "description": "TresML language extension",
-  "version": "0.0.1",
+  "categories": [
+    "Programming Languages"
+  ],
+  "publisher": "tresml-lang",
+  "icon": "./icons/tresml_with_name.png",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zacharie-moughanim/vscode-tresml.git"
+  },
   "engines": {
     "vscode": "^1.105.0"
   },
-  "categories": [
-    "Other"
-  ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-    ],
+    "commands": [],
     "languages": [
       {
         "id": "tresml",
-        "extensions": [".tml"],
-        "aliases": ["TresML"],
+        "extensions": [
+          ".tml"
+        ],
+        "aliases": [
+          "TresML"
+        ],
         "filenames": [],
         "configuration": "./tml-language-configuration.json",
         "icon": {
@@ -71,13 +81,17 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.105.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
-    "typescript-eslint": "^8.56.1",
+    "@types/vscode": "^1.105.0",
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.5.2",
     "eslint": "^9.39.3",
     "typescript": "^5.9.3",
-    "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2"
+    "typescript-eslint": "^8.56.1"
+  },
+  "dependencies": {
+    "@vscode/vsce": "^3.7.1",
+    "vsce": "^2.15.0"
   }
 }
