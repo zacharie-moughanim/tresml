@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.0.2] - 2026-03-06
+
+- Update README
+
 ## [1.0.1] - 2026-03-06
 
 - Bug fixes
